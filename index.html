@@ -1,0 +1,755 @@
+<!-- 
+=============================================
+UPCOMING REPORT TEMPLATE 1 - CSI INDABA STYLE
+Matches the CSI Indaba 2027 Report page with key highlights grid and sticky bar gate
+Usage: Copy this entire block and paste into WordPress as an HTML snippet
+The CSS is scoped with "ur-" prefix to avoid conflicts
+=============================================
+-->
+
+<div class="ur-report-container">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Scoped Styles -->
+    <style>
+        .ur-report-container {
+            font-family: 'Raleway', Helvetica, Arial, sans-serif;
+            max-width: 100%;
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+        
+        .ur-report-container * {
+            box-sizing: border-box;
+        }
+        
+        /* Full-width breakout */
+        .ur-full-width {
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+            position: relative;
+        }
+        
+        /* Hero Section */
+        .ur-hero {
+            position: relative;
+            min-height: 88vh;
+            background-size: cover;
+            background-position: center;
+            border-radius: 24px;
+            overflow: hidden;
+        }
+        
+        .ur-hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(10, 10, 10, 0.85) 0%, rgba(26, 26, 46, 0.75) 50%, rgba(22, 33, 62, 0.85) 100%);
+        }
+        
+        .ur-hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 24vh 5% 10vh;
+            max-width: 800px;
+        }
+        
+        .ur-hero-meta {
+            display: inline-block;
+            padding: 8px 20px;
+            border: 1px solid rgba(245, 166, 50, 0.4);
+            border-radius: 100px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            color: #F5A632;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+        }
+        
+        .ur-hero-title {
+            font-size: clamp(32px, 5vw, 56px);
+            color: #fff;
+            line-height: 1.1;
+            margin: 0 0 20px;
+            font-weight: 700;
+        }
+        
+        .ur-hero-subtitle {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+            margin: 0;
+        }
+        
+        /* Utility Bar */
+        .ur-utility-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: #fff;
+            border: 1px solid #E5E5E5;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        
+        .ur-utility-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        
+        .ur-utility-btn {
+            padding: 10px 16px;
+            background: #fff;
+            border: 1px solid #E5E5E5;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            color: #111;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+        
+        .ur-utility-btn:hover {
+            background: #F5A632;
+            border-color: #F5A632;
+            color: #111;
+        }
+        
+        .ur-summarize-btn {
+            padding: 10px 20px;
+            background: #F5A632;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            color: #111;
+            transition: all 0.3s ease;
+        }
+        
+        .ur-summarize-btn:hover {
+            background: #E69529;
+        }
+        
+        /* Main Content Grid */
+        .ur-content-grid {
+            display: grid;
+            grid-template-columns: 65% 35%;
+            gap: 60px;
+            margin-bottom: 40px;
+            padding: 0 3%;
+        }
+        
+        .ur-main-column {
+            min-width: 0;
+        }
+        
+        /* Executive Summary */
+        .ur-executive-summary {
+            background: #f8f8f8;
+            padding: 32px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            border-left: 4px solid #F5A632;
+        }
+        
+        .ur-executive-summary p {
+            font-size: 18px;
+            line-height: 1.7;
+            color: #222;
+            margin: 0;
+        }
+        
+        /* Key Highlights Section */
+        .ur-key-highlights {
+            margin-bottom: 40px;
+        }
+        
+        .ur-key-highlights h2 {
+            font-family: 'Raleway', Helvetica, Arial, sans-serif;
+            font-size: 32px;
+            color: #111;
+            margin-bottom: 24px;
+            font-weight: 700;
+        }
+        
+        .ur-highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        
+        .ur-highlight-card {
+            background: #f8f8f8;
+            padding: 24px;
+            border-radius: 12px;
+            border: 1px solid #E5E5E5;
+        }
+        
+        .ur-highlight-card h3 {
+            font-size: 20px;
+            color: #F5A632;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+        
+        .ur-highlight-card p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+        
+        .ur-highlight-card strong {
+            color: #111;
+        }
+        
+        /* Audio Player */
+        .ur-audio-player {
+            background: #f8f8f8;
+            padding: 24px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+        }
+        
+        .ur-audio-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: #111;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Body Text */
+        .ur-body-text {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #222;
+        }
+        
+        .ur-body-text p {
+            margin-bottom: 20px;
+        }
+        
+        .ur-vertical-marker {
+            width: 4px;
+            height: 40px;
+            background: #F5A632;
+            margin-bottom: 20px;
+        }
+        
+        /* Hidden Premium Content */
+        .ur-premium-content {
+            display: none;
+        }
+        
+        /* Sidebar */
+        .ur-sidebar {
+            position: sticky;
+            top: 20px;
+        }
+        
+        .ur-feedback-widget {
+            background: #f8f8f8;
+            padding: 24px;
+            border-radius: 12px;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+        
+        .ur-feedback-widget h4 {
+            font-size: 16px;
+            margin: 0 0 16px;
+            color: #111;
+        }
+        
+        .ur-feedback-widget button {
+            padding: 10px 24px;
+            margin: 0 8px;
+            background: #fff;
+            border: 1px solid #E5E5E5;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        
+        .ur-feedback-widget button:hover {
+            background: #F5A632;
+            border-color: #F5A632;
+        }
+        
+        .ur-downloads-section {
+            background: #f8f8f8;
+            padding: 24px;
+            border-radius: 12px;
+        }
+        
+        .ur-downloads-section h4 {
+            font-size: 16px;
+            margin: 0 0 16px;
+            color: #111;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .ur-downloads-section img {
+            width: 100%;
+            border-radius: 12px;
+            margin-bottom: 16px;
+            border: 1px solid #E5E5E5;
+        }
+        
+        .ur-download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: #F5A632;
+            color: #111;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .ur-download-btn:hover {
+            background: #E69529;
+        }
+        
+        /* Content Wrapper - White Background */
+        .ur-content-wrapper {
+            background: #fff;
+            padding: 60px 8%;
+            max-width: 1200px;
+            margin: 0 auto;
+            border-radius: 24px;
+            margin-top: 40px;
+        }
+        .ur-lead-gate {
+            position: sticky;
+            bottom: 0;
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+            z-index: 1000;
+            background: #fff;
+            border-top: 1px solid #E5E5E5;
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .ur-lead-gate-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+        
+        .ur-lead-gate-text {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .ur-lead-gate-text h3 {
+            font-family: 'Raleway', Helvetica, Arial, sans-serif;
+            font-size: 20px;
+            color: #111;
+            margin: 0 0 8px 0;
+            font-weight: 600;
+        }
+        
+        .ur-lead-gate-text p {
+            font-size: 16px;
+            color: #666;
+            margin: 0;
+        }
+        
+        .ur-lead-gate-form {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        
+        .ur-lead-gate-form input {
+            padding: 12px 16px;
+            border: 1px solid #E5E5E5;
+            border-radius: 8px;
+            font-size: 14px;
+            min-width: 150px;
+        }
+        
+        .ur-lead-gate-cta {
+            padding: 14px 32px;
+            background: #F5A632;
+            color: #111;
+            border: none;
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        
+        .ur-lead-gate-cta:hover {
+            background: #E69529;
+        }
+        
+        @media (max-width: 768px) {
+            .ur-content-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .ur-sidebar {
+                position: static;
+            }
+            
+            .ur-utility-bar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .ur-hero-content {
+                padding: 15vh 5% 5vh;
+            }
+            
+            .ur-highlights-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .ur-lead-gate-inner {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .ur-lead-gate-form {
+                flex-direction: column;
+            }
+            
+            .ur-lead-gate-form input {
+                width: 100%;
+            }
+        }
+    </style>
+    
+    <!-- Hero Section with Full Width Wrapper -->
+    <div class="ur-full-width">
+        <div class="ur-hero" style="background-image: url('https://simphiwemtetwa.africa/wp-content/uploads/2026/10/download-2.png');">
+            <div class="ur-hero-overlay"></div>
+            <div class="ur-hero-content">
+                <span class="ur-hero-meta">October 2026 | Strategic Intelligence Report | CSI Indaba</span>
+                <h1 class="ur-hero-title">Beyond Awareness: A Responsibility to Act</h1>
+                <p class="ur-hero-subtitle">The CSI Indaba Post Round-Table GBVF Report. Connecting dialogue, historical cost research, and practical directions for corporate partnerships.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Utility Bar -->
+    <div class="ur-utility-bar">
+        <div class="ur-utility-actions">
+            <button class="ur-utility-btn" onclick="urShare()">
+                <i class="fas fa-share-alt"></i> Share
+            </button>
+            <button class="ur-utility-btn" onclick="urPrint()">
+                <i class="fas fa-print"></i> Print
+            </button>
+            <a href="https://simphiwemtetwa.africa/wp-content/uploads/2026/11/CSI_Indaba_Post_Round_Table_GBVF_Report-10.pdf" class="ur-utility-btn">
+                <i class="fas fa-download"></i> Download
+            </a>
+            <button class="ur-utility-btn" onclick="urSave()">
+                <i class="fas fa-bookmark"></i> Save
+            </button>
+        </div>
+        <button class="ur-summarize-btn" onclick="urSummarize()">
+            <i class="fas fa-magic"></i> Summarize
+        </button>
+    </div>
+    
+    <!-- Main Content Grid -->
+    <div class="ur-content-grid">
+        <!-- Left Column -->
+        <div class="ur-main-column">
+            <!-- Executive Summary -->
+            <div class="ur-executive-summary">
+                <p>Gender-Based Violence and Femicide (GBVF) challenges the society we are prepared to build. While economic losses strengthen the business case, human dignity remains the reason to act.</p>
+                <p>This report moves beyond traditional awareness campaigns. It outlines a practical response for corporate South Africa: sustained prevention, stronger care systems, and leadership willing to examine everyday power. To turn intent into delivery, CSI Indaba is launching the Women, Children and Gender Office to coordinate corporate CSI contributions and connect investment with specialist, frontline delivery.</p>
+            </div>
+            
+            <!-- Key Highlights - FREE CONTENT -->
+            <div class="ur-key-highlights">
+                <h2>Key Findings</h2>
+                <div class="ur-highlights-grid">
+                    <div class="ur-highlight-card">
+                        <h3>The 6 Strategic Shifts</h3>
+                        <p><strong>The Paradigm:</strong> Moving corporate CSI from Awareness → Prevention, Wellness → Protection, Projects → Continuity, Adults → Early Support, Silos → Coordination, and Activity → Outcomes.</p>
+                        <p><strong>The Goal:</strong> Fund work that changes harmful norms and back capable community organisations with realistic operating support.</p>
+                    </div>
+                    <div class="ur-highlight-card">
+                        <h3>The Economic Reality</h3>
+                        <p><strong>The Statistic:</strong> An estimated >R36 billion national economic loss attributed to GBV in 2019.</p>
+                        <p><strong>The Hidden Cost:</strong> R9.96 billion in estimated out-of-pocket medical costs for survivors seeking help (55% physicians, 31.8% prescription meds, 13.2% travel/other).</p>
+                    </div>
+                    <div class="ur-highlight-card">
+                        <h3>The 4 Priorities for Action</h3>
+                        <p><strong>PREVENT:</strong> Invest earlier in children, caregivers, and safer norms.</p>
+                        <p><strong>PROTECT:</strong> Recognise abuse and connect people with specialist support.</p>
+                        <p><strong>PARTNER:</strong> Sustain the organisations closest to communities.</p>
+                        <p><strong>MEASURE:</strong> Track access, service quality, and safety-related outcomes.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Audio Player -->
+            <div class="ur-audio-player">
+                <span class="ur-audio-label">Listen to the report</span>
+                <audio controls style="width: 100%;">
+                    <source src="" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            
+            <!-- Body Text - FREE CONTENT -->
+            <div class="ur-body-text">
+                <div class="ur-vertical-marker"></div>
+                <p>To turn intent into delivery, CSI Indaba is launching the Women, Children and Gender Office to coordinate the corporate CSI contribution to GBVF prevention and response. This office will focus on three programme areas: Immediate Response (burial essentials, urgent family needs), Aftercare & Healing (psychosocial support, grief counselling), and Prevention & Family Wellbeing (investing earlier to reduce future harm).</p>
+                <p>The Corporate Pledge starting at ZAR 50,000 represents a commitment to: Respond First, Support Healing, Prevent Harm, Sustain Care, Partner with CSI Indaba, and Account for progress. This report provides the practical frameworks for implementation.</p>
+            </div>
+            
+            <!-- Premium Content - Hidden Until Registration -->
+            <div class="ur-premium-content" id="ur-premium-content">
+                <h2>Voices from the Dialogue</h2>
+                <p>Expertise Across Corporate and Community Life. A thematic summary of contributions to the digital round-table:</p>
+                <ul style="line-height:1.8;margin-bottom:24px;padding-left:20px;">
+                    <li><strong>Antonia Oakes:</strong> Coercive control, workplace response, and leadership responsibility. Implication: Equip managers; strengthen referrals.</li>
+                    <li><strong>Dr. Geraldine Fraser-Moleketi:</strong> Whole-of-society coordination and sustained implementation. Implication: Coordinate across sectors; invest beyond campaign cycles.</li>
+                    <li><strong>Brigitte:</strong> Economic costs and the gap between awareness and prevention. Implication: Connect the business case to human outcomes.</li>
+                    <li><strong>Zianda Mxaso & Wendy Lessing:</strong> Child safeguarding, grief, and trauma. Implication: Fund early support and continuity of care.</li>
+                </ul>
+                
+                <h2>The Economic Case & Cost of Care</h2>
+                <p><strong>The Numbers Discussed: Significant, but Historical.</strong> Note: These are historical national estimates, not a 2026 corporate audit.</p>
+                <ul style="line-height:1.8;margin-bottom:24px;padding-left:20px;">
+                    <li><strong>> R36 Billion:</strong> Estimated national economic loss attributed to GBV in 2019 (Human capital loss R26bn, Judicial costs R104m, Out-of-pocket medical ~R9.96bn).</li>
+                    <li><strong>The 10% Illustrative Scenario:</strong> A transparent mathematical exercise shows that a 10% annual compounding assumption on the R36bn anchor implies an illustrative 2026 value of R70.15bn.</li>
+                    <li><strong>International Context:</strong> The UK Home Office repriced its 2016/17 domestic-abuse estimate from £66bn to £74bn (a 12.1% cumulative price uplift).</li>
+                </ul>
+                
+                <h2>Understanding Prevention</h2>
+                <p><strong>Look at Interacting Conditions, Not a Single Cause.</strong> An editorial synthesis informed by the WHO and CDC risk-and-protection frameworks:</p>
+                <ul style="line-height:1.8;margin-bottom:24px;padding-left:20px;">
+                    <li><strong>SOCIETY:</strong> Gender inequality, norms that excuse violence, weak accountability.</li>
+                    <li><strong>COMMUNITY:</strong> Service access, economic conditions, safe spaces, trusted support.</li>
+                    <li><strong>RELATIONSHIPS:</strong> Control, household power, caregiving, conflict, social isolation.</li>
+                    <li><strong>INDIVIDUAL:</strong> Experiences of violence, wellbeing, beliefs, access to care.</li>
+                </ul>
+                <p><strong>CSI Implication:</strong> Build protection at every level. Risk factors are not destiny; responsibility for violence remains with the person who uses it.</p>
+                
+                <h2>Inside the Company: Workplace Protection</h2>
+                <p><strong>Make Workplace Protection Part of Corporate Strategy.</strong> Proposed practice agenda for HR, CSI, leadership, and specialist partners:</p>
+                <table style="width:100%;border-collapse:collapse;margin-bottom:24px;">
+                    <tr style="background:#f8f8f8;">
+                        <th style="padding:12px;text-align:left;border:1px solid #e0e0e0;">Situation or Gap</th>
+                        <th style="padding:12px;text-align:left;border:1px solid #e0e0e0;">Practical Response</th>
+                        <th style="padding:12px;text-align:left;border:1px solid #e0e0e0;">Accountable Function</th>
+                    </tr>
+                    <tr>
+                        <td style="padding:12px;border:1px solid #e0e0e0;">Employee appears distressed</td>
+                        <td style="padding:12px;border:1px solid #e0e0e0;">Offer private, supportive conversation. Avoid assumptions or demands for disclosure.</td>
+                        <td style="padding:12px;border:1px solid #e0e0e0;">Trained line manager / HR</td>
+                    </tr>
+                    <tr>
+                        <td style="padding:12px;border:1px solid #e0e0e0;">Employee discloses abuse</td>
+                        <td style="padding:12px;border:1px solid #e0e0e0;">Ask what support is wanted; discuss safe contact and specialist referral. Explain confidentiality limits.</td>
+                        <td style="padding:12px;border:1px solid #e0e0e0;">HR + safeguarding lead</td>
+                    </tr>
+                    <tr>
+                        <td style="padding:12px;border:1px solid #e0e0e0;">Wellness is the only response</td>
+                        <td style="padding:12px;border:1px solid #e0e0e0;">Review referral quality and access. Agree safe workplace accommodations case by case.</td>
+                        <td style="padding:12px;border:1px solid #e0e0e0;">HR + service provider</td>
+                    </tr>
+                    <tr>
+                        <td style="padding:12px;border:1px solid #e0e0e0;">Risk affects work environment</td>
+                        <td style="padding:12px;border:1px solid #e0e0e0;">Develop tailored workplace safety plan with employee and qualified services.</td>
+                        <td style="padding:12px;border:1px solid #e0e0e0;">HR + security + specialist</td>
+                    </tr>
+                    <tr>
+                        <td style="padding:12px;border:1px solid #e0e0e0;">Board sees only campaigns</td>
+                        <td style="padding:12px;border:1px solid #e0e0e0;">Report readiness, referral performance, and anonymised service-quality measures alongside investment.</td>
+                        <td style="padding:12px;border:1px solid #e0e0e0;">Executive sponsor + board</td>
+                    </tr>
+                </table>
+                
+                <h2>Funding for Continuity</h2>
+                <p><strong>Fund the Capacity That Makes Protection Possible.</strong> Addressing the dialogue's challenge to short grants and operating-cost restrictions:</p>
+                <ul style="line-height:1.8;margin-bottom:24px;padding-left:20px;">
+                    <li><strong>Challenge:</strong> Short project cycles interrupt care. ➔ <strong>Response:</strong> Offer multi-year agreements with proportionate reviews.</li>
+                    <li><strong>Challenge:</strong> Operating costs are treated as peripheral. ➔ <strong>Response:</strong> Assess full delivery costs (staff, supervision, safeguarding, transport).</li>
+                    <li><strong>Challenge:</strong> Small orgs carry heavy reporting burdens. ➔ <strong>Response:</strong> Use shared reporting templates or a capable intermediary.</li>
+                </ul>
+                <p><strong>The Practical Test:</strong> Does the grant strengthen the service people need, or only produce a report the funder can count?</p>
+                
+                <h2>The Women, Children & Gender Office</h2>
+                <p><strong>Programme Focus & The Corporate Pledge.</strong> CSI Indaba is launching this office to coordinate the corporate CSI contribution to GBVF prevention and response.</p>
+                <p><strong>The 3-Programme Framework:</strong></p>
+                <ul style="line-height:1.8;margin-bottom:24px;padding-left:20px;">
+                    <li><strong>Immediate Response:</strong> Practical help when a family needs it most (burial essentials, urgent food/toiletries, safe-accommodation referrals).</li>
+                    <li><strong>Aftercare & Healing:</strong> Psychosocial support, grief counselling, and trauma-informed support for bereaved families and survivors.</li>
+                    <li><strong>Prevention & Family Wellbeing:</strong> Act earlier to reduce future harm by supporting caregivers, schools, and workplaces to recognise abuse and challenge harmful norms.</li>
+                </ul>
+                <p><strong>The Corporate Pledge (From ZAR 50,000 Upwards):</strong> We recognise that preventing GBVF is a shared responsibility. We commit to:</p>
+                <ul style="line-height:1.8;margin-bottom:24px;padding-left:20px;">
+                    <li><strong>RESPOND FIRST:</strong> Support burial essentials and urgent family needs.</li>
+                    <li><strong>SUPPORT HEALING:</strong> Enable qualified psychosocial and grief support.</li>
+                    <li><strong>PREVENT HARM:</strong> Invest in evidence-informed prevention programmes.</li>
+                    <li><strong>SUSTAIN CARE:</strong> Back capable frontline partners.</li>
+                    <li><strong>PARTNER:</strong> Appoint an executive sponsor and work with CSI Indaba.</li>
+                    <li><strong>ACCOUNT:</strong> Track commitments and report progress without identifying families.</li>
+                </ul>
+                
+                <h2>The 90-Day Roadmap</h2>
+                <p><strong>Turning Intent Into Delivery.</strong> An indicative timetable from programme approval:</p>
+                <ul style="line-height:1.8;margin-bottom:24px;padding-left:20px;">
+                    <li><strong>Days 01–30 (PREPARE):</strong> Establish office lead, assess partner capacity, agree referral arrangements, cost burial essentials, and invite corporate pledges.</li>
+                    <li><strong>Days 31–60 (ACTIVATE):</strong> Confirm resources received, assess referred families, arrange practical assistance and psychosocial referrals, agree budgets.</li>
+                    <li><strong>Days 61–90 (REVIEW):</strong> Review response times and assistance delivered, follow up with families safely, begin prevention activities, and report aggregate progress.</li>
+                </ul>
+                
+                <h2>Next Conversations & Sources</h2>
+                <p><strong>Build a Sequence That Leads to Investable Action.</strong> Proposed upcoming editorial dialogues:</p>
+                <ul style="line-height:1.8;margin-bottom:24px;padding-left:20px;">
+                    <li>Families, caregiving & power: How do everyday relationships teach respect and control?</li>
+                    <li>Mental health, grief & trauma: How can care support recovery without stigma?</li>
+                    <li>Men, boys & harmful norms: Which programmes change beliefs and behaviour?</li>
+                    <li>Coercive control & the workplace: Can managers recognise warning signs safely?</li>
+                    <li>Funding the frontline: What does continuity of care actually cost?</li>
+                    <li>From pledge to accountability: What have signatories implemented?</li>
+                </ul>
+                <p><strong>Foundational Sources:</strong></p>
+                <ol style="line-height:1.8;padding-left:20px;">
+                    <li>CSI Indaba Round-Table (Oct 2026)</li>
+                    <li>The Costly Impact of GBV (SVAI/UJ 2022)</li>
+                    <li>World Health Organization: Violence against women framework</li>
+                    <li>Centers for Disease Control: Risk and Protective Factors</li>
+                </ol>
+            </div>
+        </div>
+        
+        <!-- Right Sidebar -->
+        <div class="ur-sidebar">
+            <div class="ur-feedback-widget">
+                <h4>Was this valuable?</h4>
+                <button onclick="urFeedbackYes()">Yes</button>
+                <button onclick="urFeedbackNo()">No</button>
+            </div>
+            
+            <div class="ur-downloads-section">
+                <h4>DOWNLOADS</h4>
+                <img src="https://simphiwemtetwa.africa/wp-content/uploads/2026/10/download-2.png" alt="PDF Cover">
+                <a href="https://simphiwemtetwa.africa/wp-content/uploads/2026/11/CSI_Indaba_Post_Round_Table_GBVF_Report-10.pdf" class="ur-download-btn">
+                    <i class="fas fa-download"></i> Download PDF
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Lead Generation Gate - Sticky Bar -->
+    <div class="ur-lead-gate">
+        <div class="ur-lead-gate-inner">
+            <div class="ur-lead-gate-text">
+                <h3>Register for free to continue reading</h3>
+                <p>Get full access to this report and our complete research library.</p>
+            </div>
+            <div class="ur-lead-gate-form">
+                <input type="email" id="ur-lead-email" placeholder="Email">
+                <input type="text" id="ur-lead-name" placeholder="Name">
+                <input type="text" id="ur-lead-company" placeholder="Company">
+                <button class="ur-lead-gate-cta" onclick="urContinue()">Continue</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Scoped JavaScript -->
+    <script>
+        (function() {
+            // Share functionality
+            window.urShare = function() {
+                if (navigator.share) {
+                    navigator.share({
+                        title: document.title,
+                        url: window.location.href
+                    }).catch(console.error);
+                } else {
+                    alert('Link copied to clipboard!');
+                }
+            };
+            
+            // Print functionality
+            window.urPrint = function() {
+                window.print();
+            };
+            
+            // Save functionality
+            window.urSave = function() {
+                alert('Report saved to your library!');
+            };
+            
+            // Summarize functionality
+            window.urSummarize = function() {
+                alert('AI summarization feature coming soon!');
+            };
+            
+            // Feedback functionality
+            window.urFeedbackYes = function() {
+                alert('Thank you for your feedback!');
+            };
+            
+            window.urFeedbackNo = function() {
+                alert('Thank you for your feedback. We\'ll work to improve this content.');
+            };
+            
+            // Continue functionality - reveals premium content
+            window.urContinue = function() {
+                const email = document.getElementById('ur-lead-email').value;
+                const name = document.getElementById('ur-lead-name').value;
+                const company = document.getElementById('ur-lead-company').value;
+                
+                if (!email) {
+                    alert('Please enter your email address.');
+                    return;
+                }
+                
+                // In production, this would submit to your backend
+                alert('Thank you for registering, ' + name + '! Full report is now unlocked.');
+                
+                // Reveal premium content
+                const premiumContent = document.getElementById('ur-premium-content');
+                if (premiumContent) {
+                    premiumContent.style.display = 'block';
+                }
+                
+                // Hide the lead gate
+                const leadGate = document.querySelector('.ur-lead-gate');
+                if (leadGate) {
+                    leadGate.style.display = 'none';
+                }
+            };
+        })();
+    </script>
+</div>
